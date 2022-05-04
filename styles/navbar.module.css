@@ -11,9 +11,7 @@
 	padding: 20px;
 	/* Styling */
 	list-style: none;
-	color: var(--primary-text-colour);
 	background-color: var(--secondary-bg-colour);
-	color: var(--primary-text-colour);
 }
 
 .link {
