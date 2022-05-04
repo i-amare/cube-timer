@@ -1,5 +1,5 @@
 {
-  "name": "cube-solve-timer",
+  "name": "cube-timer",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "chart.js": "^3.7.1",
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0"
