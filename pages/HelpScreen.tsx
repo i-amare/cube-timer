@@ -1,13 +1,13 @@
 import { NextPage } from 'next';
 import NavBar from './components/navbar';
 
-const TimerScreen: NextPage = () => {
+const HelpScreen: NextPage = () => {
 	return (
 		<div>
 			<NavBar />
-			<h1>Timer Screen</h1>
+			<h1>Help Screen</h1>
 		</div>
 	);
 };
 
-export default TimerScreen;
+export default HelpScreen;

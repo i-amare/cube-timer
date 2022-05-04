@@ -1,9 +1,28 @@
 .navbar {
+	/* Alignment */
 	display: flex;
 	align-content: center;
-	justify-content: space-between;
+	justify-content: center;
 	text-align: center;
-	width: 45%;
 	margin: auto;
+	gap: 8%;
+	/* Sizing */
+	width: 100%;
+	padding: 20px;
+	/* Styling */
 	list-style: none;
+	color: var(--primary-text-colour);
+	background-color: var(--secondary-bg-colour);
+	color: var(--primary-text-colour);
+}
+
+.link {
+	cursor: pointer;
+	padding: 3px 15px;
+	border-bottom: 2px solid transparent;
+	transition: border-bottom 0.5s;
+}
+
+.link:hover {
+	border-bottom: 2px solid var(--highlight-colour);
 }
