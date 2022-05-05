@@ -43,11 +43,11 @@ const TimerScreen: NextPage = () => {
 	}
 
 	return (
-		<div onClick={toggleCountState} className={styles.container}>
+		<div className={styles.container}>
 			<NavBar />
 			<Timer timeElapsed={timeElapsedState} />
 		</div>
-	);
+	)
 };
 
 export default TimerScreen;

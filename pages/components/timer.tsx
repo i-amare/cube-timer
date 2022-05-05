@@ -34,9 +34,7 @@ const Timer = (props: timerProps) => {
 
 	return (
 		<div className={styles.timer}>
-			<div>
-				<h1>{formatTime(props.timeElapsed)}</h1>
-			</div>
+				<p>{formatTime(props.timeElapsed)}</p>
 		</div>
 	);
 };

@@ -20,8 +20,8 @@ const StatsScreen: NextPage = () => {
 				label: `Last ${dataLength} Solves`,
 				data: times,
 				fill: true,
-				backgroundColor: '#80c1ff10',
-				borderColor: '#80c1ff',
+				backgroundColor: '#80cdc410',
+				borderColor: '#80cdc4',
 				cubicInterpolationMode: 'monotone',
 				tension: 0.05,
 			},
@@ -34,7 +34,7 @@ const StatsScreen: NextPage = () => {
 		scales: {
 			x: {
 				grid: {
-					borderColor: 'white'
+					borderColor: '#fff'
 				},
 				display: true,
 				title: {
@@ -44,7 +44,7 @@ const StatsScreen: NextPage = () => {
 			},
 			y: {
 				grid: {
-					borderColor: 'white'
+					borderColor: '#fff'
 				},
 				display: true,
 				min: 0,
