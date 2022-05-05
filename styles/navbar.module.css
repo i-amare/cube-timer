@@ -18,9 +18,10 @@
 	cursor: pointer;
 	padding: 3px 15px;
 	border-bottom: 2px solid transparent;
-	transition: border-bottom 0.5s;
+	transition: border-bottom 0.5s, transform 0.5s;
 }
 
 .link:hover {
 	border-bottom: 2px solid var(--highlight-colour);
+	transform: scale(1.1);
 }
