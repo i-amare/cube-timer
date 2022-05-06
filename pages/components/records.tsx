@@ -14,7 +14,7 @@ const Records = (props: recordsProps) => {
 				<p style={{ color: 'cornflowerblue' }}>{props.index}</p>
 			</div>
 			<div className={styles.cell} >
-				<h5>ALGORITHM</h5>
+				<h5>SCRAMBLE</h5>
 				<p style={{ color: 'grey' }}>{props.algorithm.join(" ")}</p>
 			</div>
 			<div className={styles.cell} >

@@ -17,12 +17,26 @@ interface solve {
 
 const StatsScreen: NextPage = () => {
 
+	const numOfEntries = Math.min(20, dummyData.length);
+	const labels: string[] = [];
+	const dataPoints: solve[] = [];
+	let worstTime = -Infinity, bestTime = Infinity, avgTime = 0, totalTime = 0;
+	for (let i = 0; i < numOfEntries; i++) {
+		labels.push(`${i + 1}`);
+		dataPoints.push(dummyData[i]);
+		const currentTime = dummyData[i].time;
+		totalTime += currentTime;
+		if (currentTime > worstTime) worstTime = currentTime;
+		if (currentTime < bestTime) bestTime = currentTime;
+	}
+	avgTime = Math.round(totalTime / numOfEntries * 100) / 100;
+
 	const file: ChartData<"line"> = {
-		labels: dummyData.map((val: solve, idx: number) => `${idx + 1}`),
+		labels: labels,
 		datasets: [
 			{
-				label: `Last ${dummyData.length} Solves`,
-				data: dummyData.map((val: solve) => {
+				label: `Last ${numOfEntries} Solves`,
+				data: dataPoints.map((val: solve) => {
 					return val.time
 				}),
 				fill: true,
@@ -65,17 +79,17 @@ const StatsScreen: NextPage = () => {
 	return (
 		<div className={styles.statsscreen}>
 			<NavBar />
+			<StatBar lighten={true} best={bestTime} worst={worstTime} average={avgTime} />
 			<div className={styles.container}>
 				<div className={styles.chart}>
 					<Line data={file} options={chartConfig} />
 				</div>
-				<StatBar lighten={true} best={25.23} worst={34.03} average={29.32} />
-				<StatBar lighten={false} best={25.23} worst={34.03} average={29.32} />
-				<StatBar lighten={true} best={25.23} worst={34.03} average={29.32} />
+				{/* <StatBar lighten={false} best={25.23} worst={34.03} average={29.32} />
+				<StatBar lighten={true} best={25.23} worst={34.03} average={29.32} /> */}
 			</div>
 			<div className={styles.records}>
 				{
-					dummyData.map((solve: solve, index: number) => {
+					dataPoints.map((solve: solve, index: number) => {
 						return (
 							<Records algorithm={solve.scramble} time={solve.time} index={index + 1} />
 						)
