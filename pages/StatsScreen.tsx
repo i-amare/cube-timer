@@ -1,24 +1,30 @@
 import { NextPage } from 'next';
 import NavBar from './components/navbar';
+import StatBar from './components/statbar';
 import styles from '../styles/StatsScreen.module.css';
+import dummyData from './data.json';
 import Chart from 'chart.js/auto';
 Chart.register();
 import { ChartData, ChartOptions } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import Records from './components/records';
+
+interface solve {
+	time: number,
+	scramble: string[]
+}
+
 
 const StatsScreen: NextPage = () => {
-	const times: number[] = [];
-	const dataLength = 20;
-	for (let i = 0; i < dataLength; i++) {
-		times.push(Math.round(Math.random() * 10) + 20);
-	}
 
-	const data: ChartData<"line"> = {
-		labels: times.map((val: number, idx: number) => `${idx + 1}`),
+	const file: ChartData<"line"> = {
+		labels: dummyData.map((val: solve, idx: number) => `${idx + 1}`),
 		datasets: [
 			{
-				label: `Last ${dataLength} Solves`,
-				data: times,
+				label: `Last ${dummyData.length} Solves`,
+				data: dummyData.map((val: solve) => {
+					return val.time
+				}),
 				fill: true,
 				backgroundColor: '#80cdc410',
 				borderColor: '#80cdc4',
@@ -57,10 +63,24 @@ const StatsScreen: NextPage = () => {
 	};
 
 	return (
-		<div className={styles.container}>
+		<div className={styles.statsscreen}>
 			<NavBar />
-			<div className={styles.chart}>
-				<Line data={data} options={chartConfig} />
+			<div className={styles.container}>
+				<div className={styles.chart}>
+					<Line data={file} options={chartConfig} />
+				</div>
+				<StatBar lighten={true} best={25.23} worst={34.03} average={29.32} />
+				<StatBar lighten={false} best={25.23} worst={34.03} average={29.32} />
+				<StatBar lighten={true} best={25.23} worst={34.03} average={29.32} />
+			</div>
+			<div className={styles.records}>
+				{
+					dummyData.map((solve: solve, index: number) => {
+						return (
+							<Records algorithm={solve.scramble} time={solve.time} index={index + 1} />
+						)
+					})
+				}
 			</div>
 		</div>
 	);

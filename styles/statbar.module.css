@@ -1,0 +1,11 @@
+.statbar {
+	display: flex;
+	align-content: center;
+	justify-content: space-evenly;
+	text-align: center;
+	padding: 10px;
+}
+
+.statbar * {
+	margin: 0;
+}
