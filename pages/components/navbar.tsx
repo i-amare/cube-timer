@@ -12,8 +12,8 @@ const NavBar = () => {
 				</Link>
 			</div>
 			<div className={styles.link}>
-				<Link href='/SolvesScreen'>
-					<b>SOLVES</b>
+				<Link href='/TrainerScreen'>
+					<b>TRAINER</b>
 				</Link>
 			</div>
 			<div className={styles.link}>

@@ -32,7 +32,7 @@ const StatsScreen: NextPage = () => {
 	}
 	avgTime = Math.round(totalTime / numOfEntries * 100) / 100;
 
-	function onInput(event: any) {
+	function onDataLoadInput(event: any) {
 		let val = event.target.value;
 		if (!val) setNumOfEntries(0);
 		let num: number = parseInt(val);
@@ -93,7 +93,7 @@ const StatsScreen: NextPage = () => {
 			<div className={styles.inputs} >
 				<h5>LOAD DATA: </h5>
 				<input type='number' value={numOfEntries} onChange={(event) => {
-					onInput(event);
+					onDataLoadInput(event);
 				}} />
 			</div>
 			<div className={styles.container}>
