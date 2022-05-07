@@ -8,6 +8,7 @@ Chart.register();
 import { ChartData, ChartOptions } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import Records from './components/records';
+import { useState } from 'react';
 
 interface solve {
 	time: number,
@@ -17,7 +18,7 @@ interface solve {
 
 const StatsScreen: NextPage = () => {
 
-	const numOfEntries = Math.min(20, dummyData.length);
+	const [numOfEntries, setNumOfEntries] = useState(Math.min(20, dummyData.length));
 	const labels: string[] = [];
 	const dataPoints: solve[] = [];
 	let worstTime = -Infinity, bestTime = Infinity, avgTime = 0, totalTime = 0;
@@ -30,6 +31,15 @@ const StatsScreen: NextPage = () => {
 		if (currentTime < bestTime) bestTime = currentTime;
 	}
 	avgTime = Math.round(totalTime / numOfEntries * 100) / 100;
+
+	function onInput(event: any) {
+		let val = event.target.value;
+		if (!val) setNumOfEntries(0);
+		let num: number = parseInt(val);
+		if (Number.isInteger(num) && num >= 0) {
+			setNumOfEntries(Math.min(num, dummyData.length))
+		}
+	}
 
 	const file: ChartData<"line"> = {
 		labels: labels,
@@ -80,6 +90,12 @@ const StatsScreen: NextPage = () => {
 		<div className={styles.statsscreen}>
 			<NavBar />
 			<StatBar lighten={true} best={bestTime} worst={worstTime} average={avgTime} />
+			<div className={styles.inputs} >
+				<h5>LOAD DATA: </h5>
+				<input type='number' value={numOfEntries} onChange={(event) => {
+					onInput(event);
+				}} />
+			</div>
 			<div className={styles.container}>
 				<div className={styles.chart}>
 					<Line data={file} options={chartConfig} />
