@@ -11,6 +11,7 @@
 	align-content: center;
 	justify-content: center;
 	gap: 20px;
+	width: 35%;
 }
 
 .inputs input {
@@ -38,7 +39,7 @@
 .records {
 	width: 75%;
 	margin: 30px auto;
-	max-height: 37.5vh;
+	max-height: 40vh;
 	overflow: scroll;
 	border-radius: 10px;
 }

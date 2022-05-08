@@ -9,6 +9,7 @@ import { ChartData, ChartOptions } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import Records from './components/records';
 import { useState } from 'react';
+import Slider from './components/slider';
 
 interface solve {
 	time: number,
@@ -86,15 +87,16 @@ const StatsScreen: NextPage = () => {
 		},
 	};
 
+	function onSliderChange(value: number) {
+		setNumOfEntries(value);
+	}
+
 	return (
 		<div className={styles.statsscreen}>
 			<NavBar />
 			<StatBar lighten={true} best={bestTime} worst={worstTime} average={avgTime} />
 			<div className={styles.inputs} >
-				<h5>LOAD DATA: </h5>
-				<input type='number' value={numOfEntries} onChange={(event) => {
-					onDataLoadInput(event);
-				}} />
+				<Slider label='Data' min={0} max={dummyData.length} value={numOfEntries} change={onSliderChange} />
 			</div>
 			<div className={styles.container}>
 				<div className={styles.chart}>
