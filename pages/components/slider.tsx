@@ -1,4 +1,5 @@
 import { CSSProperties } from "react";
+import styles from "../../styles/slider.module.css";
 
 interface sliderProps {
 	value: number;
@@ -9,16 +10,8 @@ interface sliderProps {
 }
 
 const Slider = (props: sliderProps) => {
-	const sliderStyling: CSSProperties = {
-		display: "flex",
-		alignContent: "center",
-		justifyContent: "center",
-		gap: '10px',
-		width: '100%',
-	};
-
 	return (
-		<div className="Slider" style={sliderStyling}>
+		<div className={styles.slider} >
 			<b>
 				{props.label}:
 			</b>
