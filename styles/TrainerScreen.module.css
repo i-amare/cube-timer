@@ -1,0 +1,12 @@
+.timerScreen {
+	background-color: var(--primary-bg-colour);
+	width: 100%;
+	height: 100vh;
+}
+
+.algs {
+	overflow: scroll;
+	max-height: 80vh;
+	width: 75%;
+	margin: 20px auto;
+}
