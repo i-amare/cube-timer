@@ -1,15 +1,15 @@
 import { NextPage } from 'next';
 import NavBar from './components/navbar';
 import StatBar from './components/statbar';
+import Records from './components/records';
+import Slider from './components/slider';
 import styles from '../styles/StatsScreen.module.css';
 import dummyData from './data.json';
 import Chart from 'chart.js/auto';
 Chart.register();
 import { ChartData, ChartOptions } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import Records from './components/records';
 import { useState } from 'react';
-import Slider from './components/slider';
 
 interface solve {
 	time: number,
@@ -102,14 +102,12 @@ const StatsScreen: NextPage = () => {
 				<div className={styles.chart}>
 					<Line data={file} options={chartConfig} />
 				</div>
-				{/* <StatBar lighten={false} best={25.23} worst={34.03} average={29.32} />
-				<StatBar lighten={true} best={25.23} worst={34.03} average={29.32} /> */}
 			</div>
 			<div className={styles.records}>
 				{
 					dataPoints.map((solve: solve, index: number) => {
 						return (
-							<Records algorithm={solve.scramble} time={solve.time} index={index + 1} />
+							<Records key={`${solve.scramble}-${solve.time}`} algorithm={solve.scramble} time={solve.time} index={index + 1} />
 						)
 					})
 				}
