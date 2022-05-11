@@ -1,6 +1,4 @@
-import { NextComponentType } from 'next';
 import Link from 'next/link';
-import { Component, CSSProperties } from 'react';
 import styles from '../../styles/navbar.module.css';
 
 const NavBar = () => {

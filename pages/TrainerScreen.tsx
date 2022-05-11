@@ -36,7 +36,6 @@ const TrainerScreen: NextPage = () => {
 						)
 					})
 				}
-
 			</div>
 		</div>
 	)
