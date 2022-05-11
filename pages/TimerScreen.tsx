@@ -6,7 +6,6 @@ import styles from '../styles/TimerScreen.module.css';
 
 const TimerScreen: NextPage = () => {
 	// Timer states
-	const [startTimeState, setStartTimeState] = useState(new Date().getTime());
 	const [timeElapsedState, setTimeElapsedState] = useState(0);
 	const [countState, setCountState] = useState(false);
 
