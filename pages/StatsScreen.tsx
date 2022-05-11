@@ -33,14 +33,6 @@ const StatsScreen: NextPage = () => {
 	}
 	avgTime = Math.round(totalTime / numOfEntries * 100) / 100;
 
-	function onDataLoadInput(event: any) {
-		let val = event.target.value;
-		if (!val) setNumOfEntries(0);
-		let num: number = parseInt(val);
-		if (Number.isInteger(num) && num >= 0) {
-			setNumOfEntries(Math.min(num, dummyData.length))
-		}
-	}
 
 	const file: ChartData<"line"> = {
 		labels: labels,
