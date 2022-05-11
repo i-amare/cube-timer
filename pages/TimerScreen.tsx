@@ -25,7 +25,6 @@ const TimerScreen: NextPage = () => {
 	useEffect(() => {
 		function onKeyPress(event: KeyboardEvent) {
 			if (event.key) toggleCountState();
-			console.log('triggered');
 		}
 
 		window.addEventListener('keypress', onKeyPress);
