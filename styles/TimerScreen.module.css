@@ -6,6 +6,14 @@
 	overflow: hidden;
 }
 
+.container button {
+	transition: transform 0.5s;
+}
+
+.container button:hover {
+	transform: scale(1.25);
+}
+
 .dimmer {
 	position: fixed;
 	background: var(--primary-bg-colour);
