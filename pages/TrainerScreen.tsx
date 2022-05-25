@@ -32,7 +32,7 @@ const TrainerScreen: NextPage = () => {
 								"B",
 								"L'",
 								"U'"
-							]} avergeTime={6.72} bestTime={4.76} group='Dot' lighten={idx} />
+							]} avergeTime={6.72} bestTime={4.76} group='Dot' lighten={idx + 1} />
 						)
 					})
 				}

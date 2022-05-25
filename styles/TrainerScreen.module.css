@@ -6,7 +6,8 @@
 
 .algs {
 	overflow: scroll;
-	max-height: 80vh;
+	max-height: 85vh;
 	width: 75%;
-	margin: 20px auto;
+	margin: 25px auto;
+	border-radius: 10px;
 }

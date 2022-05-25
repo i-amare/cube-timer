@@ -19,6 +19,7 @@ interface solve {
 
 const StatsScreen: NextPage = () => {
 
+	// Loads data from dummy data JSON file	
 	const [numOfEntries, setNumOfEntries] = useState(Math.min(20, dummyData.length));
 	const labels: string[] = [];
 	const dataPoints: solve[] = [];
