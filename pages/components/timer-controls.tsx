@@ -1,4 +1,6 @@
 import { CSSProperties } from "react";
+import Image from "next/image";
+import resetIcon from "../assets/restart.png";
 
 interface timerControlProps {
 	toggleTimer: () => void;
@@ -15,6 +17,16 @@ const TimerControls = (props: timerControlProps) => {
 		gap: '50px'
 	}
 
+	const imageStyling: CSSProperties = {
+		margin: 'auto',
+		width: '50px',
+		height: '50px',
+		padding: '10px',
+		backgroundColor: 'var(--highlight-colour)',
+		border: 'none',
+		borderRadius: '10px'
+	}
+
 	const btnStyling: CSSProperties = {
 		width: '100px',
 		height: '40px',
@@ -25,22 +37,27 @@ const TimerControls = (props: timerControlProps) => {
 	}
 
 	return (
-		<div style={containerStyling}>
-			<button style={btnStyling}>
-				<b>
-					+2
-				</b>
-			</button>
-			<button style={btnStyling} onClick={props.toggleTimer}>
-				<b>
-					{props.timerState ? 'STOP' : 'START'}
-				</b>
-			</button>
-			<button style={btnStyling}>
-				<b>
-					DNF
-				</b>
-			</button>
+		<div style={{ ...containerStyling, flexDirection: 'column' }}>
+			<div style={imageStyling}>
+				<Image src={resetIcon} alt="reset icon" color="white" />
+			</div>
+			<div style={containerStyling}>
+				<button style={btnStyling}>
+					<b>
+						+2
+					</b>
+				</button>
+				<button style={btnStyling} onClick={props.toggleTimer}>
+					<b>
+						{props.timerState ? 'STOP' : 'START'}
+					</b>
+				</button>
+				<button style={btnStyling}>
+					<b>
+						DNF
+					</b>
+				</button>
+			</div>
 		</div>
 	)
 }
