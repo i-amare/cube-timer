@@ -19,9 +19,9 @@ const TimerControls = (props: timerControlProps) => {
 
 	const imageStyling: CSSProperties = {
 		margin: 'auto',
-		width: '50px',
-		height: '50px',
-		padding: '10px',
+		width: '35px',
+		height: '35px',
+		padding: '5px',
 		backgroundColor: 'var(--highlight-colour)',
 		border: 'none',
 		borderRadius: '10px'
